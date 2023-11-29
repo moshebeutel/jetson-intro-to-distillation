@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "jetson_distillation"
+version = "0.1.0"
+description = ""
+authors = ["nvidia nvidia <nvidia@nvidia.com>"]
+readme = "README.md"
+packages = [
+    { include = "jetson_distillation" },
+    { include = "jetson_distillation/utils" },
+]
+
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+torch="^2.1.1"
+open-clip-torch = {git = "https://github.com/mlfoundations/open_clip.git"}
+tensorboard = "^2.15.1"
+boto3 = "^1.33.2"
+botocore = "^1.33.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
