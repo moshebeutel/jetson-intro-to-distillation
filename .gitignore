@@ -1,0 +1,6 @@
+jetson_distillation/utils/__pycache__/*
+jetson_distillation/__pycache__/*
+/*.lock
+/*.whl
+data/
+dist/
