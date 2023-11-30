@@ -1,5 +1,10 @@
 from jetson_distillation.utils.openclip_utils import get_clip_model, get_clip_tokenizer
-from jetson_distillation.utils.stl10_utils import STL10_LABELS, get_stl10_transform, get_stl10_test_embedding_dataset, get_clip_stl10_text_embeddings
+from jetson_distillation.utils.stl10_utils import (
+    STL10_LABELS,
+    get_stl10_transform,
+    get_stl10_test_embedding_dataset,
+    get_clip_stl10_text_embeddings
+)
 import torch.nn.functional as F
 import tqdm
 import torch
@@ -13,8 +18,6 @@ def embeddings_to_class_probs(vision_embeddings, text_embeddings):
     logits = vision_embeddings @ text_embeddings.T
     class_probs = F.softmax(100. * logits, dim=-1)
     return class_probs
-
-
 
 def main():
 
@@ -32,10 +35,8 @@ def main():
 
 
     dataset = get_stl10_test_embedding_dataset()
-    # print('dataset contains ',len(dataset), ' items')
-    # print('first item shapes', dataset[0][0].shape, dataset[0][1].shape)
     test_loader = DataLoader(dataset, batch_size=2, shuffle=False)
-    # print('Loader takes',len(test_loader), ' iterations')
+
     num_correct: int = 0
     total_samples: int = 0
 
@@ -56,9 +57,6 @@ def main():
     accuracy = 100. * num_correct / len(dataset)
 
     print('Evaluation finished. Accuracy = ', accuracy)
-
-
-
 
 
 if __name__=='__main__':

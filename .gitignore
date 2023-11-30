@@ -4,3 +4,4 @@ jetson_distillation/__pycache__/*
 /*.whl
 data/
 dist/
+__pycache__/
